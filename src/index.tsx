@@ -1,17 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Route, HashRouter as Router } from "react-router-dom";
 import "./index.css";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import App from "./App";
+import Login from "./pages/auth/login";
+import Preloader from "./pages/loader/preloader";
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+   <Router>
+    <div>
+      <Route exact path="/" component={Preloader} />
+      <Route path="/auth" component={Login} />
+    </div>
+   </Router>
   </React.StrictMode>
 );
 
